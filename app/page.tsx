@@ -3,25 +3,16 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import api from "@/lib/api";
-import {
-  BookOpen,
-  Zap,
-  Calendar,
-  CheckCircle,
-  BarChart2,
-  ShieldCheck,
-  Users,
-  Monitor,
-  Camera,
-
-  Computer,
-} from "lucide-react";
+import { BookOpen, Zap, Calendar, CheckCircle, BarChart2, ShieldCheck, Users, Monitor, Camera, Computer } from "lucide-react";
+import HeroSection from "@/components/HeroSection";
+import FeaturesSection from "@/components/FeaturesSection";
 
 type View = "home" | "login" | "signup";
 
 export default function Home() {
   const [view, setView] = useState<View>("home");
   const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     // Automatically redirect to dashboard if user is already authenticated
@@ -46,42 +37,20 @@ export default function Home() {
             <div className="bg-blue-600 p-2 rounded-lg">
               <BookOpen className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold tracking-tight">NextGen Academy</span>
+            <span className="text-xl font-bold tracking-tight">SmartCampus Hub</span>
           </div>
-          <div className="flex items-center gap-6 text-sm font-medium text-slate-400">
-            <a href="#features" className="hover:text-white transition">Features</a>
-            <a href="#courses" className="hover:text-white transition">Courses</a>
-            <button onClick={() => setView("login")} className="hover:text-white transition">Login</button>
-            <button onClick={() => setView("signup")} className="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition">Sign Up</button>
+
+
+          <div className="flex gap-4">
+            <button onClick={() => setView('login')} className="text-sm bg-gray-800 px-3 py-1 rounded hover:bg-gray-700 transition">Login</button>
+            <button onClick={() => setView('signup')} className="text-sm bg-gray-800 px-3 py-1 rounded hover:bg-gray-700 transition">Sign Up</button>
           </div>
         </div>
       </nav>
 
-      <header className="max-w-7xl mx-auto px-6 py-20 lg:py-32 flex flex-col items-center text-center">
-        <div className="inline-flex items-center gap-2 bg-blue-950/50 text-blue-400 px-4 py-1.5 rounded-full text-sm font-medium mb-8 border border-blue-900/50">
-          <Zap className="w-4 h-4" /> Powering the next generation of talent
-        </div>
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight">
-          Accelerate your <span className="text-blue-500">learning</span><br /> with industry experts.
-        </h1>
-        <p className="text-xl text-slate-400 max-w-2xl mb-12">
-          Join thousands of students and professionals mastering modern skills through interactive, project-based courses.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button
-            onClick={() => setView("signup")}
-            className="bg-blue-600 text-white text-xl px-12 py-5 rounded-2xl font-semibold hover:bg-blue-700 transition cursor-pointer"
-          >
-            Get Started Free
-          </button>
-          <button
-            onClick={() => setView("login")}
-            className="border border-slate-600 text-xl px-12 py-5 rounded-2xl font-semibold hover:bg-slate-800 transition cursor-pointer"
-          >
-            Browse Courses
-          </button>
-        </div>
-      </header>
+      <HeroSection />
+      <FeaturesSection />
+
       <div className="text-center py-20 text-green-400 text-2xl font-medium">
         ✅ NextGen Academy Custom Home Page is Working!
       </div>

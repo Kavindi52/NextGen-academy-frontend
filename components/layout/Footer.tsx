@@ -40,7 +40,7 @@ export default function Footer() {
       </div>
 
       <div className="text-center text-sm mt-16 border-t border-gray-800 pt-8">
-        © 2026 NextGen Academy • All Rights Reserved
+        © 2026 SmartCampus Hub • All Rights Reserved
       </div>
     </footer>
   );
